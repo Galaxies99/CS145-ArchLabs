@@ -1,0 +1,8 @@
+0.6
+2018.3
+Dec  7 2018
+00:33:28
+C:/ArchLabs/CS145-ArchLabs/lab02/lab02.sim/sim_1/behav/xsim/glbl.v,1544155481,verilog,,,,glbl,,,,,,,,
+C:/ArchLabs/CS145-ArchLabs/lab02/lab02.srcs/sim_1/new/adder_4bits_tb.v,1590109199,verilog,,,,adder_4bits_tb,,,,,,,,
+C:/ArchLabs/CS145-ArchLabs/lab02/lab02.srcs/sources_1/new/adder_1bit.v,1590108616,verilog,,C:/ArchLabs/CS145-ArchLabs/lab02/lab02.srcs/sources_1/new/adder_4bits.v,,adder_1bit,,,,,,,,
+C:/ArchLabs/CS145-ArchLabs/lab02/lab02.srcs/sources_1/new/adder_4bits.v,1590108933,verilog,,C:/ArchLabs/CS145-ArchLabs/lab02/lab02.srcs/sim_1/new/adder_4bits_tb.v,,adder_4bits,,,,,,,,
