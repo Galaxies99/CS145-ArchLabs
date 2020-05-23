@@ -1,0 +1,21 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Sat May 23 16:36:01 2020
+# Process ID: 13848
+# Current directory: C:/ArchLabs/CS145-ArchLabs/lab05
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent8436 C:\ArchLabs\CS145-ArchLabs\lab05\lab05.xpr
+# Log file: C:/ArchLabs/CS145-ArchLabs/lab05/vivado.log
+# Journal file: C:/ArchLabs/CS145-ArchLabs/lab05\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/ArchLabs/CS145-ArchLabs/lab05/lab05.xpr
+update_compile_order -fileset sources_1
+update_files -from_files C:/ArchLabs/CS145-ArchLabs/lab04/lab04.srcs/sources_1/new/dataMemory.v -to_files C:/ArchLabs/CS145-ArchLabs/lab05/lab05.srcs/sources_1/imports/new/dataMemory.v -filesets [get_filesets *]
+update_compile_order -fileset sources_1
+launch_simulation
+open_wave_config C:/ArchLabs/CS145-ArchLabs/lab05/single_cycle_mips_tb_behav.wcfg
+source single_cycle_mips_tb.tcl
+save_wave_config {C:/ArchLabs/CS145-ArchLabs/lab05/single_cycle_mips_tb_behav.wcfg}
+close_sim

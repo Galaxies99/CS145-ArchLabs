@@ -29,7 +29,7 @@ module dataMemory(
     output reg [31 : 0] readData
     );
     
-    reg [31 : 0] memFile [0 : 63];
+    reg [31 : 0] memFile [0 : 1023];
     
     
     always @ (memRead or address)
@@ -37,7 +37,7 @@ module dataMemory(
         // check if the address is valid
         if (memRead)
         begin
-            if(address <= 32'b00000000000000000000000000111111)
+            if(address <= 1023)
                 readData = memFile[address];
             else
                 readData = 0;
@@ -46,7 +46,7 @@ module dataMemory(
     
     always @ (negedge clk)
     begin
-        if (memWrite && address <= 32'b00000000000000000000000000111111)
+        if (memWrite && address <= 1023)
             memFile[address] = writeData;
     end
 endmodule
