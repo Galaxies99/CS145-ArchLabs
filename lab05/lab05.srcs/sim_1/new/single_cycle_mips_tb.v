@@ -28,8 +28,8 @@ module single_cycle_mips_tb(
     Top processor(.clk(clk), .reset(reset));
     
     initial begin
-        $readmemb("C:/ArchLabs/CS145-ArchLabs/lab05/lab05.srcs/sim_1/new/inst_data.dat", processor.inst_memory.instFile);
-        $readmemh("C:/ArchLabs/CS145-ArchLabs/lab05/lab05.srcs/sim_1/new/data.dat", processor.data_memory.memFile);         
+        $readmemb("C:/ArchLabs/CS145-ArchLabs/lab05/inst_data.dat", processor.inst_memory.instFile);
+        $readmemh("C:/ArchLabs/CS145-ArchLabs/lab05/data.dat", processor.data_memory.memFile);         
         reset = 1;
         clk = 0;
         processor.pc_controller.pcOut = 0;

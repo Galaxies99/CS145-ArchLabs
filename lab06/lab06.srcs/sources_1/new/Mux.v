@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 2020/05/22 23:01:00
+// Create Date: 2020/05/23 08:51:15
 // Design Name: 
-// Module Name: signext
+// Module Name: Mux
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,10 +20,11 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module signext(
-    input extSign,
-    input [15 : 0] inst,
-    output [31 : 0] data
+module Mux(
+    input selectSignal,
+    input [31 : 0] input1,
+    input [31 : 0] input2,
+    output [31 : 0] out
     );
-    assign data = (extSign ? { {16 {inst[15]}}, inst[15 : 0] } : { 16'h0000, inst[15 : 0] });
+    assign out = selectSignal ? input1 : input2;
 endmodule

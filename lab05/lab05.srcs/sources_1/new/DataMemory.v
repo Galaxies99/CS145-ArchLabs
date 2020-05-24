@@ -5,7 +5,7 @@
 // 
 // Create Date: 2020/05/22 22:17:45
 // Design Name: 
-// Module Name: dataMemory
+// Module Name: DataMemory
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module dataMemory(
+module DataMemory(
     input clk,
     input [31 : 0] address,
     input [31 : 0] writeData,

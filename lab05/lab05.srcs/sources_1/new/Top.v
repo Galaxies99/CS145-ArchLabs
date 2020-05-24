@@ -94,7 +94,7 @@ module Top(
     );
     
     // EXT_SIGN ? signext(INST[15 : 0]) : zeroext(INST[15 : 0])
-    signext signExt (
+    SignExt signExt (
         .extSign(EXT_SIGN),
         .inst(INST[15 : 0]),
         .data(EXT_RES)
@@ -155,13 +155,13 @@ module Top(
     );
     
     // instruction memory module
-    instMemory inst_memory (
+    InstMemory inst_memory (
         .address(PC_OUT),
         .inst(INST)
     );
     
     // data memory module
-    dataMemory data_memory (
+    DataMemory data_memory (
         .clk(clk),
         .address(ALU_RES),
         .writeData(REG_OUT2),
