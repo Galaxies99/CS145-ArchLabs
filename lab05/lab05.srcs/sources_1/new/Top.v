@@ -205,7 +205,7 @@ module Top(
     // JR ? JR : ORIGIN PC
     Mux jr_selector (
         .selectSignal(JR_SIGN),
-        .input1(ALU_RES),
+        .input1(REG_OUT1),
         .input2(PC_TEMP2),
         .out(PC_IN)
     );

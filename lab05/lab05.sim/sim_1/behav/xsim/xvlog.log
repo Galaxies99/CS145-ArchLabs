@@ -22,5 +22,3 @@ INFO: [VRFC 10-2263] Analyzing Verilog file "C:/ArchLabs/CS145-ArchLabs/lab05/la
 INFO: [VRFC 10-311] analyzing module Top
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/ArchLabs/CS145-ArchLabs/lab05/lab05.srcs/sim_1/new/single_cycle_mips_tb.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module single_cycle_mips_tb
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/ArchLabs/CS145-ArchLabs/lab05/lab05.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module glbl

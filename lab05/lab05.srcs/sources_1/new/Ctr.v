@@ -117,6 +117,7 @@ module Ctr(
                 memRead = 0;
                 memWrite = 0;
                 branch = 0;
+                extSign = 0;
                 jalSign = 0;
                 aluOp = 3'b011;
                 jump = 0;
