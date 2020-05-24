@@ -24,12 +24,13 @@ module ALU(
     input [31 : 0] inputA,
     input [31 : 0] inputB,
     input [3 : 0] aluCtrOut,
-    input zero,
+    output zero,
     output [31 : 0] aluRes
     );
     
     reg Zero;
     reg [31 : 0] ALURes;
+    integer tempA, tempB;
     
     always @ (inputA or inputB or aluCtrOut)
     begin
@@ -49,7 +50,11 @@ module ALU(
             4'b0110:    // sub
                 ALURes = inputA - inputB;
             4'b0111:    // set on less than
-                ALURes = (inputA < inputB);
+            begin
+                tempA = inputA;
+                tempB = inputB;
+                ALURes = (tempA < tempB);
+            end
             4'b1100:    // nor
                 ALURes = ~(inputA | inputB);
             default:

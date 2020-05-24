@@ -21,55 +21,60 @@
 
 
 module ALUCtr(
-    input [2 : 0] aluOp,
+    input [3 : 0] aluOp,
     input [5 : 0] funct,
     output reg [3 : 0] aluCtrOut,
-    output reg shamtSign,
-    output reg jrSign
+    output reg shamtSign
     );
     
     always @ (aluOp or funct)
     begin
-        casex ({aluOp, funct})
-            9'b000xxxxxx:  // lw or sw: actually add
-                aluCtrOut = 4'b0010;
-            9'b001xxxxxx:  // beq: actually sub
-                aluCtrOut = 4'b0110;
-            9'b010xxxxxx:  // addi: actually add
-                aluCtrOut = 4'b0010;
-            9'b011xxxxxx:  // andi: acutally and
-                aluCtrOut = 4'b0000;
-            9'b100xxxxxx:  // ori: acutally or
-                aluCtrOut = 4'b0001;
-            9'b101000000:  // sll: actually left-shift
-                aluCtrOut = 4'b0011;
-            9'b101000010:  // srl: actuall right-shift
-                aluCtrOut = 4'b0100;
-            9'b101001000:  // jr: actually not change
-                aluCtrOut = 4'b0101;
-            9'b101100000:  // add: actually add
-                aluCtrOut = 4'b0010;
-            9'b101100010:  // sub: actually sub
-                aluCtrOut = 4'b0110;
-            9'b101100100:  // and: actually and
-                aluCtrOut = 4'b0000;
-            9'b101100101:  // or: actually or
-                aluCtrOut = 4'b0001;
-            9'b101101010:  // slt: actually set on less than
-                aluCtrOut = 4'b0111;
-            9'b110xxxxxx:  // jump / jal: actually not change
-                aluCtrOut = 4'b0101;
-        endcase        
-        
-        if ({aluOp, funct} == 9'b101000000 || {aluOp, funct} == 9'b101000010)
-            shamtSign = 1;
-        else 
-            shamtSign = 0;
-        
-        if ({aluOp, funct} == 9'b101001000)
-            jrSign = 1;
-        else 
-            jrSign = 0;
+        if (aluOp == 4'b1101 || aluOp == 4'b1110) begin
+            case (funct)
+                6'b100000:      // add
+                    aluCtrOut = 4'b0000;
+                6'b100001:      // addu
+                    aluCtrOut = 4'b0001;
+                6'b100010:      // sub
+                    aluCtrOut = 4'b0010;
+                6'b100011:      // subu
+                    aluCtrOut = 4'b0011;
+                6'b100100:      // and
+                    aluCtrOut = 4'b0100;
+                6'b100101:      // or
+                    aluCtrOut = 4'b0101;
+                6'b100110:      // xor
+                    aluCtrOut = 4'b0110;
+                6'b100111:      // nor
+                    aluCtrOut = 4'b0111;
+                6'b101010:      // slt
+                    aluCtrOut = 4'b1000;
+                6'b101011:      // sltu
+                    aluCtrOut = 4'b1001;
+                6'b000000:      // sll
+                    aluCtrOut = 4'b1010;
+                6'b000010:      // srl
+                    aluCtrOut = 4'b1011;
+                6'b000011:      // sra
+                    aluCtrOut = 4'b1100;
+                6'b000100:      // sllv
+                    aluCtrOut = 4'b1010;
+                6'b000110:      // srlv
+                    aluCtrOut = 4'b1011;
+                6'b000111:      // srav
+                    aluCtrOut = 4'b1100;
+                6'b001000:      // jr
+                    aluCtrOut = 4'b1111;
+                default:
+                    aluCtrOut = 4'b1111;
+            endcase
             
+            if (funct == 6'b000000 || funct == 6'b000010 || funct == 6'b000011)
+                shamtSign = 1;
+            else
+                shamtSign = 0;
+        end else begin
+            aluCtrOut = aluOp;
+        end
     end
 endmodule

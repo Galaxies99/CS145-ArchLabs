@@ -24,7 +24,7 @@ module ALU(
     input [31 : 0] inputA,
     input [31 : 0] inputB,
     input [3 : 0] aluCtrOut,
-    input zero,
+    output zero,
     output [31 : 0] aluRes
     );
     

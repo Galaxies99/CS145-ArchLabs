@@ -22,16 +22,20 @@
 
 module Ctr(
     input [5 : 0] opCode,
+    input [5 : 0] funct,
     output reg regDst,
     output reg aluSrc,
-    output reg memToReg,
     output reg regWrite,
+    output reg memToReg,
     output reg memRead,
     output reg memWrite,
-    output reg branch,
+    output reg beqSign,
+    output reg bneSign,
+    output reg luiSign,
     output reg extSign,
     output reg jalSign,
-    output reg [2 : 0] aluOp,
+    output reg jrSign,
+    output reg [3 : 0] aluOp,
     output reg jump
     );
     
@@ -40,141 +44,281 @@ module Ctr(
         case(opCode)
             6'b000000:      // R Type
             begin
-                regDst = 1;
+                if (funct == 6'b001000) begin    // jr
+                    regDst = 0;
+                    regWrite = 0;
+                    jrSign = 1;
+                    aluOp = 4'b1111;
+                end else begin
+                    regDst = 1;
+                    regWrite = 1;
+                    jrSign = 0;
+                    aluOp = 4'b1101;
+                end
                 aluSrc = 0;
                 memToReg = 0;
-                regWrite = 1;
                 memRead = 0;
                 memWrite = 0;
-                branch = 0;
+                beqSign = 0;
+                bneSign = 0;
+                luiSign = 0;
                 extSign = 0;
                 jalSign = 0;
-                aluOp = 3'b101;
-                jump = 0;
-            end
-            6'b100011:      // lw
-            begin
-                regDst = 0;
-                aluSrc = 1;
-                memToReg = 1;
-                regWrite = 1;
-                memRead = 1;
-                memWrite = 0;
-                branch = 0;
-                extSign = 1;
-                jalSign = 0;
-                aluOp = 3'b000;
-                jump = 0;
-            end
-            6'b101011:      // sw
-            begin
-                regDst = 0;
-                aluSrc = 1;
-                memToReg = 0;
-                regWrite = 0;
-                memRead = 0;
-                memWrite = 1;
-                branch = 0;
-                extSign = 1;
-                jalSign = 0;
-                aluOp = 3'b000;
-                jump = 0;
-            end
-            6'b000100:      // beq
-            begin
-                regDst = 0;
-                aluSrc = 0;
-                memToReg = 0;
-                regWrite = 0;
-                memRead = 0;
-                memWrite = 0;
-                branch = 1;
-                extSign = 1;
-                jalSign = 0;
-                aluOp = 3'b001;
                 jump = 0;
             end
             6'b001000:      // addi
             begin
                 regDst = 0;
                 aluSrc = 1;
-                memToReg = 0;
                 regWrite = 1;
+                memToReg = 0;
                 memRead = 0;
                 memWrite = 0;
-                branch = 0;
+                beqSign = 0;
+                bneSign = 0;
+                luiSign = 0;
                 extSign = 1;
                 jalSign = 0;
-                aluOp = 3'b010;
+                jrSign = 0;
+                aluOp = 4'b0000;
+                jump = 0;
+            end
+            6'b001001:      // addiu
+            begin                
+                regDst = 0;
+                aluSrc = 1;
+                regWrite = 1;
+                memToReg = 0;
+                memRead = 0;
+                memWrite = 0;
+                beqSign = 0;
+                bneSign = 0;
+                luiSign = 0;
+                extSign = 0;
+                jalSign = 0;
+                jrSign = 0;
+                aluOp = 4'b0001;
                 jump = 0;
             end
             6'b001100:      // andi
-            begin
+            begin                
                 regDst = 0;
                 aluSrc = 1;
-                memToReg = 0;
                 regWrite = 1;
+                memToReg = 0;
                 memRead = 0;
                 memWrite = 0;
-                branch = 0;
+                beqSign = 0;
+                bneSign = 0;
+                luiSign = 0;
+                extSign = 0;
                 jalSign = 0;
-                aluOp = 3'b011;
+                jrSign = 0;
+                aluOp = 4'b0100;
                 jump = 0;
             end
             6'b001101:      // ori
-            begin
+            begin                
                 regDst = 0;
                 aluSrc = 1;
-                memToReg = 0;
                 regWrite = 1;
+                memToReg = 0;
                 memRead = 0;
                 memWrite = 0;
-                branch = 0;
+                beqSign = 0;
+                bneSign = 0;
+                luiSign = 0;
                 extSign = 0;
                 jalSign = 0;
-                aluOp = 3'b100;
+                jrSign = 0;
+                aluOp = 4'b0101;
+                jump = 0;
+            end
+            6'b001110:      // xori
+            begin                
+                regDst = 0;
+                aluSrc = 1;
+                regWrite = 1;
+                memToReg = 0;
+                memRead = 0;
+                memWrite = 0;
+                beqSign = 0;
+                bneSign = 0;
+                luiSign = 0;
+                extSign = 0;
+                jalSign = 0;
+                jrSign = 0;
+                aluOp = 4'b0110;
+                jump = 0;
+            end
+            6'b001111:      // lui
+            begin                
+                regDst = 0;
+                aluSrc = 1;
+                regWrite = 1;
+                memToReg = 0;
+                memRead = 0;
+                memWrite = 0;
+                beqSign = 0;
+                bneSign = 0;
+                luiSign = 1;
+                extSign = 0;
+                jalSign = 0;
+                jrSign = 0;
+                aluOp = 4'b1010;
+                jump = 0;
+            end
+            6'b100011:      // lw
+            begin                
+                regDst = 0;
+                aluSrc = 1;
+                regWrite = 1;
+                memToReg = 1;
+                memRead = 1;
+                memWrite = 0;
+                beqSign = 0;
+                bneSign = 0;
+                luiSign = 0;
+                extSign = 1;
+                jalSign = 0;
+                jrSign = 0;
+                aluOp = 4'b0001;
+                jump = 0;
+            end
+            6'b101011:      // sw
+            begin                
+                regDst = 0;
+                aluSrc = 1;
+                regWrite = 0;
+                memToReg = 0;
+                memRead = 0;
+                memWrite = 1;
+                beqSign = 0;
+                bneSign = 0;
+                luiSign = 0;
+                extSign = 1;
+                jalSign = 0;
+                jrSign = 0;
+                aluOp = 4'b0001;
+                jump = 0;
+            end
+            6'b000100:      // beq
+            begin                
+                regDst = 0;
+                aluSrc = 0;
+                regWrite = 0;
+                memToReg = 0;
+                memRead = 0;
+                memWrite = 0;
+                beqSign = 1;
+                bneSign = 0;
+                luiSign = 0;
+                extSign = 1;
+                jalSign = 0;
+                jrSign = 0;
+                aluOp = 4'b0011;
+                jump = 0;
+            end
+            6'b000101:      // bne
+            begin                
+                regDst = 0;
+                aluSrc = 0;
+                regWrite = 0;
+                memToReg = 0;
+                memRead = 0;
+                memWrite = 0;
+                beqSign = 0;
+                bneSign = 1;
+                luiSign = 0;
+                extSign = 1;
+                jalSign = 0;
+                jrSign = 0;
+                aluOp = 4'b0011;
+                jump = 0;
+            end
+            6'b001010:      // slti
+            begin                
+                regDst = 0;
+                aluSrc = 1;
+                regWrite = 1;
+                memToReg = 0;
+                memRead = 0;
+                memWrite = 0;
+                beqSign = 0;
+                bneSign = 0;
+                luiSign = 0;
+                extSign = 1;
+                jalSign = 0;
+                jrSign = 0;
+                aluOp = 4'b1000;
+                jump = 0;
+            end
+            6'b001011:      // sltiu
+            begin                
+                regDst = 0;
+                aluSrc = 1;
+                regWrite = 1;
+                memToReg = 0;
+                memRead = 0;
+                memWrite = 0;
+                beqSign = 0;
+                bneSign = 0;
+                luiSign = 0;
+                extSign = 0;
+                jalSign = 0;
+                jrSign = 0;
+                aluOp = 4'b1001;
                 jump = 0;
             end
             6'b000010:      // jump
-            begin
+            begin                
                 regDst = 0;
                 aluSrc = 0;
-                memToReg = 0;
                 regWrite = 0;
+                memToReg = 0;
                 memRead = 0;
                 memWrite = 0;
-                branch = 0;
+                beqSign = 0;
+                bneSign = 0;
+                luiSign = 0;
                 extSign = 0;
                 jalSign = 0;
-                aluOp = 3'b110;
+                jrSign = 0;
+                aluOp = 4'b1111;
                 jump = 1;
             end
             6'b000011:      // jal
-            begin
+            begin                
                 regDst = 0;
                 aluSrc = 0;
-                memToReg = 0;
                 regWrite = 1;
+                memToReg = 0;
                 memRead = 0;
                 memWrite = 0;
-                branch = 0;
+                beqSign = 0;
+                bneSign = 0;
+                luiSign = 0;
                 extSign = 0;
                 jalSign = 1;
-                aluOp = 3'b110;
-                jump = 1;                
+                jrSign = 0;
+                aluOp = 4'b1111;
+                jump = 1;
             end
-            default:        // default
-            begin
+            default:
+            begin                
                 regDst = 0;
                 aluSrc = 0;
-                memToReg = 0;
                 regWrite = 0;
+                memToReg = 0;
                 memRead = 0;
                 memWrite = 0;
-                branch = 0;
+                beqSign = 0;
+                bneSign = 0;
+                luiSign = 0;
                 extSign = 0;
                 jalSign = 0;
-                aluOp = 3'b111;
+                jrSign = 0;
+                aluOp = 4'b1111;
                 jump = 0;
             end
         endcase
