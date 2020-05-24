@@ -75,6 +75,7 @@ module ALUCtr(
                 shamtSign = 0;
         end else begin
             aluCtrOut = aluOp;
+            shamtSign = 0;
         end
     end
 endmodule

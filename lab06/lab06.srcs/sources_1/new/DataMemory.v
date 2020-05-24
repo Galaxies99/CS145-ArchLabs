@@ -49,7 +49,7 @@ module DataMemory(
     begin
         if (memWrite && address <= 1023)
         begin
-            memFile[address] = writeData;
+            memFile[address] <= writeData;
             $display("Memory Writing:\n    Mem[%d] = %d\n", address, writeData);
        end
     end

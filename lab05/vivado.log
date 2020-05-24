@@ -2,10 +2,10 @@
 # Vivado v2018.3 (64-bit)
 # SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
 # IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
-# Start of session at: Sun May 24 14:24:11 2020
-# Process ID: 5988
+# Start of session at: Sun May 24 20:00:16 2020
+# Process ID: 2084
 # Current directory: C:/ArchLabs/CS145-ArchLabs/lab05
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent2632 C:\ArchLabs\CS145-ArchLabs\lab05\lab05.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent8772 C:\ArchLabs\CS145-ArchLabs\lab05\lab05.xpr
 # Log file: C:/ArchLabs/CS145-ArchLabs/lab05/vivado.log
 # Journal file: C:/ArchLabs/CS145-ArchLabs/lab05\vivado.jou
 #-----------------------------------------------------------
@@ -16,7 +16,7 @@ Finished scanning sources
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2018.3/data/ip'.
-open_project: Time (s): cpu = 00:00:14 ; elapsed = 00:00:07 . Memory (MB): peak = 728.863 ; gain = 133.102
+open_project: Time (s): cpu = 00:00:12 ; elapsed = 00:00:06 . Memory (MB): peak = 732.699 ; gain = 68.137
 update_compile_order -fileset sources_1
 launch_simulation
 INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/ArchLabs/CS145-ArchLabs/lab05/lab05.sim/sim_1/behav/xsim'
@@ -109,10 +109,12 @@ Memory Reading:
 Memory Reading:
     Mem[         0] =        255
 
-PC:          4
+PC:          0
 
 Register Writing:
     Reg[ 1] =        255
+
+PC:          4
 
 Register Reading:
     Reg[ 0] =          0
@@ -120,9 +122,6 @@ Register Reading:
 
 Memory Reading:
     Mem[         1] =        256
-
-Register Writing:
-    Reg[ 2] =        256
 
 PC:          8
 
@@ -155,13 +154,13 @@ PC:         16
 
 Register Reading:
     Reg[ 1] =        255
-    Reg[ 2] =        256
+    Reg[ 2] =          0
 
 Memory Reading:
     Mem[     12323] =          0
 
 Register Writing:
-    Reg[ 6] =        511
+    Reg[ 6] =        255
 
 PC:         20
 
@@ -206,19 +205,19 @@ PC:         32
 
 Register Reading:
     Reg[16] =          7
-    Reg[ 2] =        256
+    Reg[ 2] =          0
 
 Register Writing:
-    Reg[ 8] =        263
+    Reg[ 8] =          7
 
 PC:         36
 
 Register Reading:
     Reg[ 5] =          5
-    Reg[ 8] =        263
+    Reg[ 8] =          7
 
 Memory Writing:
-    Mem[        12] =        263
+    Mem[        12] =          7
 
 PC:         40
 
@@ -257,16 +256,16 @@ Memory Reading:
     Mem[        15] =        262
 
 Memory Reading:
-    Mem[        12] =        263
+    Mem[        12] =          7
 
 Register Writing:
-    Reg[ 9] =        263
+    Reg[ 9] =          7
 
 PC:         56
 
 Register Reading:
-    Reg[ 9] =        263
-    Reg[ 8] =        263
+    Reg[ 9] =          7
+    Reg[ 8] =          7
 
 Memory Reading:
     Mem[         1] =        256
@@ -356,8 +355,9 @@ Register Reading:
 
 INFO: [USF-XSim-96] XSim completed. Design snapshot 'single_cycle_mips_tb_behav' loaded.
 INFO: [USF-XSim-97] XSim simulation ran for 1000ns
-launch_simulation: Time (s): cpu = 00:00:09 ; elapsed = 00:00:08 . Memory (MB): peak = 800.855 ; gain = 0.000
+launch_simulation: Time (s): cpu = 00:00:10 ; elapsed = 00:00:08 . Memory (MB): peak = 756.406 ; gain = 0.000
+save_wave_config {C:/ArchLabs/CS145-ArchLabs/lab05/single_cycle_mips_tb_behav.wcfg}
 close_sim
 INFO: [Simtcl 6-16] Simulation closed
 exit
-INFO: [Common 17-206] Exiting Vivado at Sun May 24 14:25:32 2020...
+INFO: [Common 17-206] Exiting Vivado at Sun May 24 20:02:14 2020...

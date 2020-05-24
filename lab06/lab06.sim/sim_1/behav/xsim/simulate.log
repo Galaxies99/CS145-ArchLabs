@@ -1,0 +1,208 @@
+Vivado Simulator 2018.3
+Time resolution is 1 ps
+Register Reading:
+    Reg[ 0] =          0
+    Reg[ 0] =          0
+
+Register Reading:
+    Reg[ 0] =          0
+    Reg[ 1] =          0
+
+Register Reading:
+    Reg[ 0] =          0
+    Reg[ 2] =          0
+
+Memory Reading:
+    Mem[         0] =        255
+
+Register Reading:
+    Reg[ 0] =          0
+    Reg[ 3] =          0
+
+Memory Reading:
+    Mem[         1] =        256
+
+Register Reading:
+    Reg[ 3] =          0
+    Reg[ 4] =          0
+
+Register Writing:
+    Reg[ 1] =        255
+
+Memory Reading:
+    Mem[         7] =          3
+
+Register Writing:
+    Reg[ 2] =        256
+
+Register Reading:
+    Reg[ 1] =        255
+    Reg[ 2] =        256
+
+Register Writing:
+    Reg[ 3] =          3
+
+Memory Reading:
+    Mem[        14] =        261
+
+Register Reading:
+    Reg[ 4] =          0
+    Reg[ 1] =        255
+
+Register Reading:
+    Reg[ 7] =          0
+    Reg[16] =          0
+
+Register Writing:
+    Reg[ 4] =        261
+
+Register Reading:
+    Reg[ 1] =        255
+    Reg[ 4] =        261
+
+Register Writing:
+    Reg[ 6] =        511
+
+Memory Reading:
+    Mem[        11] =          7
+
+Register Reading:
+    Reg[16] =          0
+    Reg[ 2] =        256
+
+Register Writing:
+    Reg[ 7] =          6
+
+Register Reading:
+    Reg[ 5] =          0
+    Reg[ 8] =          0
+
+Register Writing:
+    Reg[16] =          7
+
+Register Reading:
+    Reg[ 1] =        255
+    Reg[10] =          0
+
+Register Writing:
+    Reg[ 5] =          5
+
+Register Reading:
+    Reg[ 4] =        261
+    Reg[11] =          0
+
+Register Writing:
+    Reg[ 8] =        263
+
+Memory Writing:
+    Mem[        12] =        263
+
+Register Reading:
+    Reg[16] =          7
+    Reg[12] =          0
+
+Register Reading:
+    Reg[ 0] =          0
+    Reg[ 9] =          0
+
+Register Writing:
+    Reg[10] =        511
+
+Register Reading:
+    Reg[ 9] =          0
+    Reg[ 8] =        263
+
+Register Writing:
+    Reg[11] =          5
+
+Memory Reading:
+    Mem[        12] =        263
+
+Register Writing:
+    Reg[12] =        263
+
+Register Reading:
+    Reg[ 0] =          0
+    Reg[11] =          5
+
+Register Writing:
+    Reg[ 9] =        263
+
+Register Reading:
+    Reg[ 0] =          0
+    Reg[ 0] =          0
+
+Register Reading:
+    Reg[ 0] =          0
+    Reg[11] =          5
+
+Register Reading:
+    Reg[ 0] =          0
+    Reg[10] =        511
+
+Register Reading:
+    Reg[15] =          0
+    Reg[14] =          0
+
+Register Reading:
+    Reg[15] =          0
+    Reg[16] =          7
+
+Register Writing:
+    Reg[14] =         80
+
+Register Reading:
+    Reg[ 0] =          0
+    Reg[ 0] =          0
+
+Register Writing:
+    Reg[15] =         31
+
+Register Writing:
+    Reg[17] =          1
+
+Register Writing:
+    Reg[18] =          0
+
+Register Writing:
+    Reg[         31] =         92
+
+Register Reading:
+    Reg[11] =          5
+    Reg[11] =          5
+
+Register Reading:
+    Reg[31] =         92
+    Reg[ 0] =          0
+
+Register Reading:
+    Reg[ 0] =          0
+    Reg[ 0] =          0
+
+Register Reading:
+    Reg[16] =          7
+    Reg[11] =          5
+
+Register Writing:
+    Reg[11] =          7
+
+Register Reading:
+    Reg[11] =          7
+    Reg[11] =          7
+
+Register Reading:
+    Reg[ 0] =          0
+    Reg[ 0] =          0
+
+Register Reading:
+    Reg[11] =          7
+    Reg[11] =          7
+
+Register Reading:
+    Reg[ x] =          x
+    Reg[ x] =          x
+
+Register Writing:
+    Reg[11] =          9
+
+$finish called at time : 1540 ns : File "C:/ArchLabs/CS145-ArchLabs/lab06/lab06.srcs/sim_1/new/mips_tb.v" Line 42

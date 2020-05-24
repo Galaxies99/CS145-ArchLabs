@@ -32,13 +32,12 @@ module single_cycle_mips_tb(
         $readmemh("C:/ArchLabs/CS145-ArchLabs/lab05/data.dat", processor.data_memory.memFile);         
         reset = 1;
         clk = 0;
-        processor.pc_controller.pcOut = 0;
     end
     
     always #20 clk = ~clk;
     
     initial begin
-        #20 reset = 0;
+        #40 reset = 0;
         #1000;
         $finish;
     end

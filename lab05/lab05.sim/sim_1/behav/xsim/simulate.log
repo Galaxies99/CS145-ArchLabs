@@ -12,10 +12,12 @@ Memory Reading:
 Memory Reading:
     Mem[         0] =        255
 
-PC:          4
+PC:          0
 
 Register Writing:
     Reg[ 1] =        255
+
+PC:          4
 
 Register Reading:
     Reg[ 0] =          0
@@ -23,9 +25,6 @@ Register Reading:
 
 Memory Reading:
     Mem[         1] =        256
-
-Register Writing:
-    Reg[ 2] =        256
 
 PC:          8
 
@@ -58,13 +57,13 @@ PC:         16
 
 Register Reading:
     Reg[ 1] =        255
-    Reg[ 2] =        256
+    Reg[ 2] =          0
 
 Memory Reading:
     Mem[     12323] =          0
 
 Register Writing:
-    Reg[ 6] =        511
+    Reg[ 6] =        255
 
 PC:         20
 
@@ -109,19 +108,19 @@ PC:         32
 
 Register Reading:
     Reg[16] =          7
-    Reg[ 2] =        256
+    Reg[ 2] =          0
 
 Register Writing:
-    Reg[ 8] =        263
+    Reg[ 8] =          7
 
 PC:         36
 
 Register Reading:
     Reg[ 5] =          5
-    Reg[ 8] =        263
+    Reg[ 8] =          7
 
 Memory Writing:
-    Mem[        12] =        263
+    Mem[        12] =          7
 
 PC:         40
 
@@ -160,16 +159,16 @@ Memory Reading:
     Mem[        15] =        262
 
 Memory Reading:
-    Mem[        12] =        263
+    Mem[        12] =          7
 
 Register Writing:
-    Reg[ 9] =        263
+    Reg[ 9] =          7
 
 PC:         56
 
 Register Reading:
-    Reg[ 9] =        263
-    Reg[ 8] =        263
+    Reg[ 9] =          7
+    Reg[ 8] =          7
 
 Memory Reading:
     Mem[         1] =        256
