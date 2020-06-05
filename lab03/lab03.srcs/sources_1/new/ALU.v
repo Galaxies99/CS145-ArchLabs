@@ -43,7 +43,7 @@ module ALU(
             4'b0110:    // sub
                 ALURes = inputA - inputB;
             4'b0111:    // set on less than
-                ALURes = (inputA < inputB);
+                ALURes = ($signed(inputA) < $signed(inputB));
             4'b1100:    // nor
                 ALURes = ~(inputA | inputB);
             default:
