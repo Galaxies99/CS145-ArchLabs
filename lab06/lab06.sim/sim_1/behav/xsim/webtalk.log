@@ -2,12 +2,12 @@
 # Webtalk v2018.3 (64-bit)
 # SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
 # IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
-# Start of session at: Sun May 24 19:57:30 2020
-# Process ID: 11944
+# Start of session at: Sat Jun  6 08:22:56 2020
+# Process ID: 12920
 # Current directory: C:/ArchLabs/CS145-ArchLabs/lab06/lab06.sim/sim_1/behav/xsim
-# Command line: wbtcv.exe -mode batch -source C:/ArchLabs/CS145-ArchLabs/lab06/lab06.sim/sim_1/behav/xsim/xsim.dir/Top_behav/webtalk/xsim_webtalk.tcl -notrace
+# Command line: wbtcv.exe -mode batch -source C:/ArchLabs/CS145-ArchLabs/lab06/lab06.sim/sim_1/behav/xsim/xsim.dir/mips_tb_behav/webtalk/xsim_webtalk.tcl -notrace
 # Log file: C:/ArchLabs/CS145-ArchLabs/lab06/lab06.sim/sim_1/behav/xsim/webtalk.log
 # Journal file: C:/ArchLabs/CS145-ArchLabs/lab06/lab06.sim/sim_1/behav/xsim\webtalk.jou
 #-----------------------------------------------------------
-source C:/ArchLabs/CS145-ArchLabs/lab06/lab06.sim/sim_1/behav/xsim/xsim.dir/Top_behav/webtalk/xsim_webtalk.tcl -notrace
-INFO: [Common 17-206] Exiting Webtalk at Sun May 24 19:57:31 2020...
+source C:/ArchLabs/CS145-ArchLabs/lab06/lab06.sim/sim_1/behav/xsim/xsim.dir/mips_tb_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Sat Jun  6 08:22:57 2020...

@@ -195,14 +195,7 @@ Register Reading:
     Reg[ 0] =          0
 
 Register Reading:
-    Reg[11] =          7
-    Reg[11] =          7
-
-Register Reading:
     Reg[ x] =          x
     Reg[ x] =          x
-
-Register Writing:
-    Reg[11] =          9
 
 $finish called at time : 1540 ns : File "C:/ArchLabs/CS145-ArchLabs/lab06/lab06.srcs/sim_1/new/mips_tb.v" Line 42
