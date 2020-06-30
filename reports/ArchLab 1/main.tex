@@ -37,7 +37,7 @@
 本次实验需要实现LED流水灯这一个简单的FPGA 部件，其功能要求是每间隔一段时间点亮下一个LED灯并且熄灭当前的LED灯。我们可以利用一个计数器\texttt{cnt\_reg}实现时钟周期数目的记录，当计数器达到我们设定的最大值时，我们进行LED灯的切换，同时将计数器重置为0。由于我们使用8位LED灯，我们采取8位二进制编码\texttt{light\_reg}来表示之；第$i$位为0说明第$i$个LED灯未被点亮；第$i$位为1说明第$i$个LED灯被点亮。于是我们可以使用左移操作进行LED灯的切换；需要注意的是，如果当前点亮的是最后一个LED灯，即8位二进制编码仅最高位为1，我们需要特殊处理，将下一个状态的8位二进制编码设为仅最低一位为1，从而实现LED灯的循环点亮。此外，我们还需要设计针对\texttt{reset}信号进行重置这一特殊机制。
 
 \section{功能实现}\label{section3}
-根据第\ref{section2}节中所阐释的原理，我们使用计数器\texttt{cnt\_reg}实现时钟周期数目的记录，并且使用8位二进制编码\texttt{light\_reg}来表示这个8位LED灯。
+根据第 \ref{section2} 节中所阐释的原理，我们使用计数器\texttt{cnt\_reg}实现时钟周期数目的记录，并且使用8位二进制编码\texttt{light\_reg}来表示这个8位LED灯。
 
 我们采取如下代码实现对于计数器\texttt{cnt\_reg}的更新，并在其中加入关于重置模块的设计：当\texttt{reset}信号为1时，我们将计数器清零重置。
 
@@ -127,72 +127,9 @@ always @ (posedge clock)
 \clearpage
 \begin{appendices}
 \section{设计文件完整代码实现}\label{appsection1}
-\begin{lstlisting}[language=verilog]
-`timescale 1ns / 1ps
-
-module flowing_light(
-    input clock,
-    input reset,
-    output [7 : 0] led
-    );
-    
-    reg [1 : 0] cnt_reg;
-    reg [7 : 0] light_reg;
-    
-    always @ (posedge clock)
-        begin
-            if (reset)
-                cnt_reg <= 0;
-            else
-                cnt_reg <= cnt_reg + 1;
-        end
-    
-    always @ (posedge clock)
-        begin
-            if (reset)
-                light_reg <= 8'h01;
-            else if (cnt_reg == 2'b11)
-                begin
-                    if (light_reg == 8'h80)
-                        light_reg <= 8'h01;
-                    else 
-                        light_reg <= light_reg << 1;
-                end
-        end
-    
-    assign led = light_reg;
-endmodule
-\end{lstlisting}
-\clearpage
+参见代码文件 \texttt{flowing\_light.v}。
 \section{激励文件完整代码实现}\label{appsection2}
-\begin{lstlisting}[language=verilog]
-`timescale 1ns / 1ps
-
-module flowing_light_tb(
-    );
-    reg clock;
-    reg reset;
-    wire [7 : 0] led;
-    
-    flowing_light u0(
-        .clock(clock),
-        .reset(reset),
-        .led(led));
-    
-    parameter PERIOD = 10;
-    
-    always #(PERIOD * 2) clock = !clock;
-    
-    initial begin
-        clock = 1'b0;
-        reset = 1'b0;
-        #(PERIOD * 2) reset = 1'b1;
-        #(PERIOD * 2) reset = 1'b0;
-        
-        // #580; reset = 1'b1
-     end
-endmodule
-\end{lstlisting}
+参见代码文件 \texttt{flowing\_light\_tb.v}。
 \end{appendices}
 
 \end{document}
